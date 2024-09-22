@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ProductInfoActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/itemToolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/itemnameHeader"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Nike Air Force 1"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+            <ImageView
+                android:id="@+id/btnSearchItem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_search"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"/>
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/imageItem"
+            app:layout_constraintTop_toBottomOf="@+id/itemToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/nameitem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nike Air Force 1"
+            android:textSize="22sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/imageItem"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/priceitem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="đ2.419.000"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/nameitem"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/infoitem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/priceitem"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"/>
+        <TextView
+            android:id="@+id/inventoryQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inventory Quantity: 25"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/infoitem"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:id="@+id/itemLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/inventoryQuantity">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSelectSize"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_item_button"
+                android:layout_gravity="center"
+                android:text="Select Size"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAddTobag"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_item_button2"
+                android:layout_gravity="center"
+                android:text="Add to Bag"
+                android:textColor="@color/white"
+                android:layout_marginTop="10dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnFavorite"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_item_button"
+                android:layout_gravity="center"
+                android:text="Favorite"
+                android:textColor="@color/black"
+                android:layout_marginTop="10dp"/>
+        </LinearLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/itemDivider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/itemLinear"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You Might Also like"
+            app:layout_constraintTop_toBottomOf="@+id/itemDivider"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/like"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="20dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
