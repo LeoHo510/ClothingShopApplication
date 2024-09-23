@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utils {
-    public static String BASE_URL = "http://192.168.1.94/clothing/";
+    public static String BASE_URL = "http://192.168.1.18/clothing/";
     public static List<Product> listFavor;
     public static List<Product> listBag;
     public static List<String> stringList;
