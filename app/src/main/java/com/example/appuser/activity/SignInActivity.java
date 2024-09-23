@@ -38,7 +38,6 @@ public class SignInActivity extends AppCompatActivity {
     FirebaseUser user;
     FirebaseAuth firebaseAuth;
 
-    // test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
