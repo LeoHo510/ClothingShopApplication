@@ -358,7 +358,7 @@ public class PaymentActivity extends AppCompatActivity {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        response -> Log.d("Email", "Email sent successfully!"),
+                        response -> Log.d("", "Email sent successfully!" + email),
                         throwable -> Log.e("Email", "Error sending email: " + throwable.getMessage())
                 ));
     }

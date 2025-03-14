@@ -3,8 +3,8 @@ package com.example.appuser.model;
 import java.io.Serializable;
 
 public class Product implements Serializable {
-    private String url_img, name, price, info, category;
-    private int inventory_quantity, quantity, id, size;
+    private String url_img, name, price, info, category, size;
+    private int inventory_quantity, quantity, id;
 
     public String getCategory() {
         return category;
@@ -62,11 +62,11 @@ public class Product implements Serializable {
         this.quantity = quantity;
     }
 
-    public int getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(int size) {
+    public void setSize(String size) {
         this.size = size;
     }
 

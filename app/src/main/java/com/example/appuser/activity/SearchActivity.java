@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import io.paperdb.Paper;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -66,8 +68,15 @@ public class SearchActivity extends AppCompatActivity {
                 if (query.isEmpty()) {
                     searchProduct("");
                 } else {
-                    Utils.stringList.add(query);
+                    if (!Utils.stringList.contains(query)) {
+                        Utils.stringList.add(query);
+                        Paper.book().write("searchStringList", Utils.stringList);
+                    }
                     searchProduct(query);
+                    Intent search = new Intent(getApplicationContext(), ResultSearchActivity.class);
+                    search.putExtra("key", query);
+                    startActivity(search);
+                    finish();
                 }
                 return true;
             }

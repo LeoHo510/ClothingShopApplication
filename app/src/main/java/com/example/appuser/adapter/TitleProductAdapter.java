@@ -83,7 +83,7 @@ public class  TitleProductAdapter extends RecyclerView.Adapter<RecyclerView.View
                                     for (int i = 0; i < salesModel.getList().size(); i++) {
                                         list.add(new SlideModel(salesModel.getList().get(i).getUrl(), null));
                                     }
-                                    adsViewHolder.imageSlider.setImageList(list, ScaleTypes.FIT);
+                                    adsViewHolder.imageSlider.setImageList(list, ScaleTypes.CENTER_INSIDE);
                                 }
                             },
                             throwable -> {

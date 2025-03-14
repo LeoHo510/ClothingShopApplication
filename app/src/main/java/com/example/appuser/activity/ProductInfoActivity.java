@@ -37,6 +37,7 @@ import org.greenrobot.eventbus.EventBus;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import io.paperdb.Paper;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -110,13 +111,13 @@ public class ProductInfoActivity extends AppCompatActivity {
             btnSize.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showBottomDialog();
+                    showBottomDialog(product.getCategory());
                 }
             });
             btnAddTobag.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (product.getSize() == 0) {
+                    if (Objects.equals(product.getSize(), null)) {
                         MotionToast.Companion.createToast(ProductInfoActivity.this,
                                 "Notice",
                                 "Plese Select Size Before Add This Product Into Bag Shop",
@@ -213,12 +214,16 @@ public class ProductInfoActivity extends AppCompatActivity {
     }
 
     @SuppressLint("ResourceAsColor")
-    private void showBottomDialog() {
+    private void showBottomDialog(String category) {
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
         View bottomSheetView = LayoutInflater.from(this).inflate(R.layout.bottom_sheet_layout, null);
         bottomSheetDialog.setContentView(bottomSheetView);
-
-        String[] sizes = getResources().getStringArray(R.array.size_array);
+        String[] sizes;
+        if (category.equals("Shoes")) {
+            sizes = getResources().getStringArray(R.array.size_number_array);
+        } else {
+            sizes = getResources().getStringArray(R.array.size_array);
+        }
         for (String size : sizes) {
             TextView item = new TextView(this);
             item.setText(size);
@@ -228,7 +233,7 @@ public class ProductInfoActivity extends AppCompatActivity {
             item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    product.setSize(Integer.parseInt(size));
+                    product.setSize(size);
                     bottomSheetDialog.dismiss();
                     btnSize.setText(size);
                 }

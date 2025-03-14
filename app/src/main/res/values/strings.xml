@@ -13,7 +13,7 @@
         <item>9</item>
         <item>10</item>
     </string-array>
-    <string-array name="size_array">
+    <string-array name="size_number_array">
         <item>36</item>
         <item>37</item>
         <item>38</item>
@@ -22,6 +22,13 @@
         <item>41</item>
         <item>42</item>
         <item>43</item>
+    </string-array>
+    <string-array name="size_array">
+        <item>XXL</item>
+        <item>XL</item>
+        <item>L</item>
+        <item>M</item>
+        <item>S</item>
     </string-array>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
