@@ -4,7 +4,12 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="https" android:host="www.google.com" />
+        </intent>
+    </queries>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,7 +20,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppUser"
+        tools:replace="android:theme"
         tools:targetApi="31">
+        <activity
+            android:name=".activity.UpdatePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ResetPasswordActivity"
+            android:exported="false" />
         <activity
             android:name=".activity.EditUserActivity"
             android:exported="false" />
@@ -51,7 +63,21 @@
         </activity>
         <activity
             android:name=".activity.PaymentActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:launchMode="singleTask">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value=""
+                />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="${applicationId}.braintree"/>
+                <data android:scheme="demozpdk"/>
+                <data android:host="app"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.DeliveryActivity"
             android:exported="false" />

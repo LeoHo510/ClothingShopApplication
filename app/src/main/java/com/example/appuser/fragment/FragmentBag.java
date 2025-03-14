@@ -2,8 +2,10 @@ package com.example.appuser.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -26,6 +28,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.appuser.R;
 import com.example.appuser.activity.DeliveryActivity;
 import com.example.appuser.activity.MainActivity;
+import com.example.appuser.activity.SignInActivity;
 import com.example.appuser.adapter.BagAdapter;
 import com.example.appuser.model.EventBus.CheckTotalEvent;
 import com.example.appuser.model.Product;
@@ -34,6 +37,7 @@ import com.example.appuser.retrofit.ApiClothing;
 import com.example.appuser.retrofit.RetrofitClient;
 import com.example.appuser.utils.Utils;
 import com.google.android.material.divider.MaterialDivider;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -44,6 +48,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import io.paperdb.Paper;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -96,17 +101,37 @@ public class FragmentBag extends Fragment {
                 if (btnBag.getText().equals("Shop Now")) {
                     ((MainActivity) requireActivity()).switchToFragmentShop();
                 } else if (btnBag.getText().equals("Checkout")) {
-                    if (isStockAvailable()) {
-                        Intent delivery = new Intent(getContext(), DeliveryActivity.class);
-                        startActivity(delivery);
+                    if (FirebaseAuth.getInstance().getCurrentUser() == null || Paper.book().read("user_current") == null || Utils.user == null) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                        builder.setTitle("Notice");
+                        builder.setMessage("You must login before buy something!");
+                        builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                        builder.setPositiveButton("Go to Login", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent login = new Intent(getContext(), SignInActivity.class);
+                                startActivity(login);
+                            }
+                        });
+                        builder.create().show();
                     } else {
-                        MotionToast.Companion.createToast((Activity) getContext(),
-                                "Notice",
-                                "Some items are out of stock!",
-                                MotionToastStyle.WARNING,
-                                MotionToast.GRAVITY_TOP,
-                                MotionToast.SHORT_DURATION,
-                                ResourcesCompat.getFont(getContext(), R.font.helvetica_regular));
+                        if (isStockAvailable()) {
+                            Intent delivery = new Intent(getContext(), DeliveryActivity.class);
+                            startActivity(delivery);
+                        } else {
+                            MotionToast.Companion.createToast((Activity) requireContext(),
+                                    "Notice",
+                                    "Some items are out of stock!",
+                                    MotionToastStyle.WARNING,
+                                    MotionToast.GRAVITY_TOP,
+                                    MotionToast.SHORT_DURATION,
+                                    ResourcesCompat.getFont(requireContext(), R.font.helvetica_regular));
+                        }
                     }
                 }
             }

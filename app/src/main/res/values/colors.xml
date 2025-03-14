@@ -4,4 +4,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="milk_white">#FFEED9</color>
     <color name="pink">#FF0057</color>
+    <color name="green_100">#29C52C</color>
+    <color name="black_100">#242424</color>
+    <color name="white_100">#FFFBF8</color>
+    <color name="red">#FF0000</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="gray">#757575</color>
+    <color name="gray_light">#BDBDBD</color>
+    <color name="green_700">#388E3C</color>
+    <color name="blue">#0095FF</color>
 </resources>

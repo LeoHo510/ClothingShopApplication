@@ -23,7 +23,7 @@ import io.paperdb.Paper;
 
 public class StartActivity2 extends AppCompatActivity {
     ImageSlider imageSlider;
-    AppCompatButton btnSignUp, btnSignIn;
+    AppCompatButton btnSignUp, btnSignIn, btnViewShop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,12 +40,8 @@ public class StartActivity2 extends AppCompatActivity {
 
     private void initControl() {
         List<SlideModel> list = new ArrayList<>();
-        list.add(new SlideModel("https://www.inspirationde.com/wp-content/uploads/2023/03/The-Best-Nike-Motivation-Posters-Motivate-Yourself-Just-Do.png", null));
-        list.add(new SlideModel("https://i.pinimg.com/originals/1c/78/f0/1c78f09fc456ed8595da3f0fc94f2507.jpg", null));
-        list.add(new SlideModel("https://mir-s3-cdn-cf.behance.net/project_modules/max_632/b0f2f847096219.586fdf02887e9.jpg", null));
-        list.add(new SlideModel("https://i.pinimg.com/736x/06/ab/26/06ab2648557afa90df17a51e1ec9f960.jpg", null));
-        list.add(new SlideModel("https://mir-s3-cdn-cf.behance.net/project_modules/disp/cb799b157291747.63762604ddcc3.png", null));
-        list.add(new SlideModel("https://i.pinimg.com/736x/14/4c/4b/144c4bb3ad0e180a7a2be1b1daf906d0.jpg", null));
+        list.add(new SlideModel(R.drawable.product_template, null));
+        list.add(new SlideModel(R.drawable.product_template_2, null));
         imageSlider.setImageList(list, ScaleTypes.FIT);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,13 +56,18 @@ public class StartActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 Intent signin = new Intent(getApplicationContext(), SignInActivity.class);
                 startActivity(signin);
-                finish();
+            }
+        });
+        btnViewShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewShop = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(viewShop);
             }
         });
         if (Paper.book().contains("user_current")) {
             Intent main = new Intent(StartActivity2.this, MainActivity.class);
             startActivity(main);
-            finish();
         }
     }
 
@@ -75,5 +76,6 @@ public class StartActivity2 extends AppCompatActivity {
         imageSlider = findViewById(R.id.startSlider);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnSignUp = findViewById(R.id.btnSignUp);
+        btnViewShop = findViewById(R.id.btnViewShop);
     }
 }

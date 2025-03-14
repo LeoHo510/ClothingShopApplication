@@ -49,8 +49,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
         if (!orderList.isEmpty()) {
             Order order = orderList.get(position);
             if (order != null) {
-                holder.id.setText("Order-" + order.getId());
-                holder.status.setText("Status: Preparing");
+                holder.id.setText("Order #" + order.getId());
+                holder.status.setText("Status: " + order.getStatus());
                 holder.date.setText(order.getDate());
                 DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
                 holder.total_price.setText("Total Price: đ" + decimalFormat.format(Double.parseDouble(order.getTotalprice())));

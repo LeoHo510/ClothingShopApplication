@@ -1,21 +1,75 @@
 [versions]
 agp = "8.6.1"
+androidsvg = "1.4"
+card = "4.20.0"
+commons-codec = "1.18.0"
+eventbus = "3.2.0"
+firebase-analytics = "22.3.0"
+firebase-auth = "23.2.0"
+firebase-firestore = "25.1.2"
+firebase-messaging-version = "24.1.0"
+glide = "4.16.0"
+google-auth-library-oauth2-http = "1.19.0"
+gson = "2.10.1"
+imageslideshow = "0.1.2"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.2.1"
 espresso-core = "3.6.1"
 appcompat = "1.7.0"
+lottie = "6.4.0"
 material = "1.12.0"
 constraintlayout = "2.1.4"
 firebase-messaging = "24.0.0"
+material-version = "1.10.0"
+mobile-sdk = "1.0.7"
+motiontoast = "1.4"
+navigation-fragment = "2.6.0"
+navigation-ui = "2.6.0"
+activity = "1.9.3"
+okhttp = "4.9.3"
+paperdb = "2.7.1"
+play-services-auth = "21.3.0"
+retrofit = "2.9.0"
+rxandroid = "3.0.0"
+rxjava3-retrofit-adapter = "3.0.0"
+viewpager2 = "1.1.0"
 
 [libraries]
+androidsvg = { module = "com.caverock:androidsvg", version.ref = "androidsvg" }
+androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
+commons-codec = { module = "commons-codec:commons-codec", version.ref = "commons-codec" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
+converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+eventbus = { module = "org.greenrobot:eventbus", version.ref = "eventbus" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics", version.ref = "firebase-analytics" }
+firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebase-auth" }
+firebase-firestore = { module = "com.google.firebase:firebase-firestore", version.ref = "firebase-firestore" }
+firebase-messaging-v2410 = { module = "com.google.firebase:firebase-messaging", version.ref = "firebase-messaging-version" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+google-auth-library-oauth2-http = { module = "com.google.auth:google-auth-library-oauth2-http", version.ref = "google-auth-library-oauth2-http" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+imageslideshow = { module = "com.github.denzcoskun:ImageSlideshow", version.ref = "imageslideshow" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebase-messaging" }
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigation-fragment" }
+androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigation-ui" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+material-v1100 = { module = "com.google.android.material:material", version.ref = "material-version" }
+mobile-sdk = { module = "com.github.momo-wallet:mobile-sdk", version.ref = "mobile-sdk" }
+motiontoast = { module = "com.github.Spikeysanju:MotionToast", version.ref = "motiontoast" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+paperdb = { module = "io.github.pilgr:paperdb", version.ref = "paperdb" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "play-services-auth" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+rxandroid = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxandroid" }
+rxjava = { module = "io.reactivex.rxjava3:rxjava", version.ref = "rxandroid" }
+rxjava3-retrofit-adapter = { module = "com.github.akarnokd:rxjava3-retrofit-adapter", version.ref = "rxjava3-retrofit-adapter" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

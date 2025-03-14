@@ -36,6 +36,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -43,51 +46,75 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
+    implementation(fileTree(mapOf(
+        "dir" to "C:\\HocTap\\zalopay",
+        "include" to listOf("*.aar", "*.jar"),
+        "exclude" to listOf("")
+    )))
+    implementation(files("C:/HocTap/zalopay/zpdk-release-v3.1.aar"))
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+    implementation(libs.androidx.activity)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
     //Glide
-    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
+    implementation(libs.androidsvg)
 
     //ImageSlider
-    implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
-    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.imageslideshow)
+    implementation(libs.glide)
 
     //RxJava
-    implementation ("io.reactivex.rxjava3:rxandroid:3.0.0")
-    implementation("io.reactivex.rxjava3:rxjava:3.0.0")
+    implementation (libs.rxandroid)
+    implementation(libs.rxjava)
 
     // Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("com.github.akarnokd:rxjava3-retrofit-adapter:3.0.0")
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.rxjava3.retrofit.adapter)
+
     //paper
-    implementation("io.github.pilgr:paperdb:2.7.1")
+    implementation(libs.paperdb)
 
     //gson
-    implementation("com.google.code.gson:gson:2.8.9")
+    implementation(libs.gson)
 
     //eventBus
-    implementation("org.greenrobot:eventbus:3.2.0")
+    implementation(libs.eventbus)
 
     //viewpager2
-    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+    implementation (libs.androidx.viewpager2)
 
     //Motion Toast
-    implementation("com.github.Spikeysanju:MotionToast:1.4")
+    implementation(libs.motiontoast)
 
     //Lottie
-    implementation ("com.airbnb.android:lottie:6.4.0")
+    implementation (libs.lottie)
 
     //firebase
-    implementation("com.google.firebase:firebase-auth:23.0.0")
+    implementation(libs.firebase.auth)
 
     //firebase cloud messagging
-    implementation("com.google.firebase:firebase-messaging:24.0.0")
-    implementation("com.google.firebase:firebase-analytics:22.0.0")
-    implementation("com.google.firebase:firebase-firestore:25.0.0")
+    implementation(libs.firebase.messaging.v2410)
+    implementation(libs.firebase.analytics)
+    implementation(libs.firebase.firestore)
+    implementation (libs.play.services.auth)
 
     //OAuth 2.0
-    implementation("com.google.auth:google-auth-library-oauth2-http:1.19.0")
+    implementation(libs.google.auth.library.oauth2.http)
+
+    //OkHttp
+    implementation(libs.okhttp)
+
+    //commons-codec
+    implementation(libs.commons.codec)
+
+    // momo
+    implementation(libs.mobile.sdk)
+
+    implementation (libs.material.v1100)
 }

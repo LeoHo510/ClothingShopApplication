@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,7 +28,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class TitleProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class  TitleProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     Context context;
     List<TitleProduct> list;
     List<Product> productList;
@@ -86,7 +87,7 @@ public class TitleProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                                 }
                             },
                             throwable -> {
-
+                                Toast.makeText(context, throwable.getMessage(), Toast.LENGTH_LONG).show();
                             }
                     ));
         } else {
@@ -103,12 +104,22 @@ public class TitleProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     .subscribe(
                             productModel -> {
                                 if (productModel.isSuccess()) {
-                                    productList.clear();
-                                    productList.addAll(productModel.getList());
-                                    adapter2.notifyDataSetChanged();
+                                    if (!productModel.getList().isEmpty()) {
+                                        productList.clear();
+                                        productList.addAll(productModel.getList());
+                                        adapter2.notifyDataSetChanged();
+                                        flashSaleViewHolder.recyclerView.setVisibility(View.VISIBLE);
+                                    } else {
+                                        flashSaleViewHolder.recyclerView.setVisibility(View.GONE);
+                                    }
                                 }
+                            },
+                            throwable -> {
+                                Toast.makeText(context, "Lỗi: " + throwable.getMessage(), Toast.LENGTH_LONG).show();
+                                flashSaleViewHolder.recyclerView.setVisibility(View.GONE);
                             }
                     ));
+
         }
     }
 

@@ -14,6 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.appuser.R;
+import com.example.appuser.model.User;
 import com.example.appuser.retrofit.ApiClothing;
 import com.example.appuser.retrofit.RetrofitClient;
 import com.example.appuser.utils.Utils;
@@ -45,6 +46,14 @@ public class EditUserActivity extends AppCompatActivity {
     }
 
     private void initControl() {
+        User user = Utils.user;
+        if (user != null) {
+            firstname.setText(user.getFirstname().toString());
+            lastname.setText((user.getLastname().toString()));
+            address.setText(user.getAddress().toString());
+            phonenumber.setText(user.getPhonenumber().toString());
+            email.setText(user.getEmail().toString());
+        }
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,13 +1,17 @@
 package com.example.appuser.retrofit;
 
+import com.example.appuser.model.CostEffective;
+import com.example.appuser.model.CostEffectiveModel;
 import com.example.appuser.model.MessageModel;
 import com.example.appuser.model.OrderModel;
 import com.example.appuser.model.ProductModel;
-import com.example.appuser.model.SalesModel;
+import com.example.appuser.model.AdsModel;
 import com.example.appuser.model.TitleProductModel;
 import com.example.appuser.model.UserModel;
+import com.example.appuser.model.VNPayResponse;
 
 import io.reactivex.rxjava3.core.Observable;
+import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -24,8 +28,11 @@ public interface ApiClothing {
     @GET("gettitleproduct.php")
     Observable<TitleProductModel> getTitleProduct();
 
+    @GET("getcosteffective.php")
+    Observable<CostEffectiveModel> getCostEffective();
+
     @GET("getsales.php")
-    Observable<SalesModel> getSales();
+    Observable<AdsModel> getSales();
 
     @POST("getRandomProduct.php")
     @FormUrlEncoded
@@ -45,6 +52,8 @@ public interface ApiClothing {
             @Field("iduser") int iduser,
             @Field("quantity") int quantity,
             @Field("totalprice") String totalprice,
+            @Field("method") String method,
+            @Field("token") String token,
             @Field("details") String details
     );
 
@@ -65,6 +74,18 @@ public interface ApiClothing {
     Observable<UserModel> signIn(
             @Field("email") String email,
             @Field("password") String password
+    );
+
+    @POST("checkEmailDuplicate.php")
+    @FormUrlEncoded
+    Observable<MessageModel> checkEmailDuplicate(
+            @Field("email") String email
+    );
+
+    @POST("signInWithGmail.php")
+    @FormUrlEncoded
+    Observable<UserModel> signInWithGmail(
+            @Field("email") String email
     );
 
     @POST("updatetoken.php")
@@ -121,6 +142,21 @@ public interface ApiClothing {
             @Field("phonenumber") String phonenumber,
             @Field("email") String email
     );
+
+    @POST("send_email.php")
+    @FormUrlEncoded
+    Observable<MessageModel> send_email_order(
+            @Field("email") String email,
+            @Field("subject") String subject,
+            @Field("message") String message
+    );
+
+    @POST("create_payment.php")
+    @FormUrlEncoded
+    Call<VNPayResponse> createVNPayPayment(
+            @Field("amount") String amount
+    );
+
 
     @GET("statistics.php")
     Observable<ProductModel> getStatistics();

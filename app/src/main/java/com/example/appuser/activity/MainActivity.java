@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
             window.setStatusBarColor(Color.TRANSPARENT);
         }
         initView();
-        getToken();
         loadSearchString();
         loadFavorites();
         loadBag();
@@ -150,7 +149,10 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-        Utils.user = Paper.book().read("user_current");
+        if(Paper.book().contains("user_current")) {
+            Utils.user = Paper.book().read("user_current");
+            getToken();
+        }
     }
 
     @Override

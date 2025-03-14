@@ -11,7 +11,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/logo_nike"/>
+            android:src="@drawable/logo_merchize"/>
     </androidx.appcompat.widget.Toolbar>
     <ScrollView
         android:layout_width="match_parent"
@@ -81,7 +81,7 @@
                     android:layout_marginLeft="10dp"/>
             </androidx.appcompat.widget.LinearLayoutCompat>
             <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/btnMomo"
+                android:id="@+id/btnVnpay"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/background_linear"
@@ -91,16 +91,41 @@
                 <ImageView
                     android:layout_width="35dp"
                     android:layout_height="35dp"
+                    android:src="@drawable/vnpay"
+                    android:layout_margin="20dp"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VNPay"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/btnMomo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/background_linear"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:backgroundTint="#b0006d">
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:src="@drawable/momo"
                     android:layout_margin="20dp"
                     android:layout_gravity="center"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Momo"
+                    android:text="MoMo e-wallet"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"/>
             </androidx.appcompat.widget.LinearLayoutCompat>

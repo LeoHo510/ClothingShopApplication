@@ -4,10 +4,18 @@ import java.sql.Date;
 import java.util.List;
 
 public class Order {
-    String firstname, lastname, address, phonenumber, email, totalprice;
+    String firstname, lastname, address, phonenumber, email, totalprice, method, status;
     int id, iduser, quantity;
     String date;
     List<Product> items;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public List<Product> getList() {
         return items;
@@ -95,5 +103,13 @@ public class Order {
 
     public void setTotalprice(String totalprice) {
         this.totalprice = totalprice;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
     }
 }

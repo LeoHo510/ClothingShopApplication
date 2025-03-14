@@ -192,6 +192,13 @@ public class ProductInfoActivity extends AppCompatActivity {
                         Utils.listFavor.add(product);
                         adapter.notifyDataSetChanged();
                         sendUpdateFavorBroadcast();
+                        MotionToast.Companion.createToast(ProductInfoActivity.this,
+                                "Notice",
+                                "Add Product to Favor List Success!",
+                                MotionToastStyle.SUCCESS,
+                                MotionToast.GRAVITY_BOTTOM,
+                                MotionToast.SHORT_DURATION,
+                                ResourcesCompat.getFont(ProductInfoActivity.this, R.font.helvetica_regular));
                     }
                 }
             });
