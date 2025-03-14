@@ -106,7 +106,8 @@ public class FragmentShop extends Fragment {
                             if (titleProductModel.isSuccess()) {
                                 for (TitleProduct titleProduct : titleProductModel.getList()) {
                                     List<Product> categoryProducts = new ArrayList<>();
-                                    compositeDisposable.add(apiClothing.getProduct(titleProduct.getTitle(), Utils.user.getStatus())
+                                    String status = (Utils.user != null) ? String.valueOf(Utils.user.getStatus()) : "0";
+                                    compositeDisposable.add(apiClothing.getProduct(titleProduct.getTitle(), Integer.parseInt(status))
                                             .subscribeOn(Schedulers.io())
                                             .observeOn(AndroidSchedulers.mainThread())
                                             .subscribe(
